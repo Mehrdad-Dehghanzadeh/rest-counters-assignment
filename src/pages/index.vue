@@ -1,5 +1,5 @@
 <template>
-  
+  <k-btn icon="arrow-left"> back</k-btn>
 </template>
 
 <script>

@@ -1,0 +1,22 @@
+.k-btn {
+  min-width: 100px;
+  min-height: 30px;
+  text-align: center;
+  padding: 4px 12px;
+  box-shadow: 0 0 3px 0 $color-shadow;
+  background-color: $color-element;
+  border-radius: 4px;
+  transition: background-color ease 185ms;
+  text-transform: capitalize;
+  @include text-size(14px, 1, 300);
+  cursor: pointer;
+
+  &__icon {
+    margin-right: 2px;
+    vertical-align: bottom;
+  }
+
+  &:hover {
+    background-color: $color-element-dark;
+  }
+}
