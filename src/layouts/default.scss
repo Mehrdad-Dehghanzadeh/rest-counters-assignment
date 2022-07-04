@@ -1,0 +1,9 @@
+.default-layout {
+  &__main {
+    background-color: $color-bg;
+    padding: 45px 0;
+    min-height: calc(100vh - 80px);
+  }
+}
+
+
