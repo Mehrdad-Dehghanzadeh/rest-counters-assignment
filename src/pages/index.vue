@@ -1,6 +1,4 @@
-<template>
-  <k-btn icon="arrow-left"> back</k-btn>
-</template>
+<template></template>
 
 <script>
 export default {

@@ -80,6 +80,7 @@ export default {
   },
 
   alias: {
+    '@mixins': path.resolve(__dirname, './src/assets/mixins'),
     '@helpers': path.resolve(__dirname, './src/assets/helpers'),
     '@kits': path.resolve(__dirname, './src/components/kits'),
     '@page-components': path.resolve(

@@ -27,6 +27,7 @@ input[type='number'] {
 ::-moz-placeholder,
 :-ms-input-placeholder,
 ::-webkit-input-placeholder {
+  color: $color-text;
   opacity: 1;
 }
 
