@@ -108,8 +108,7 @@
             <span class="direction-ltr">
               +{{ selectedValue.length - maxChips }}
             </span>
-
-            مورد دیگر
+            more
           </span>
         </div>
 

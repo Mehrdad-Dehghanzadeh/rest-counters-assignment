@@ -8,15 +8,17 @@ export default {
     name: {
       type: String,
       default: null
-    },
-
-    rules: {
-      type: [String, Object],
-      default: null
     }
   },
 
   computed: {
+    listeners() {
+      return {
+        ...this.listeners$,
+        input: (val) => val
+      }
+    },
+
     localId_() {
       if (typeof this._uid !== 'undefined') {
         return 'app__' + this._uid
@@ -30,15 +32,6 @@ export default {
 
     safeName() {
       return this.name || this.safeId
-    },
-
-    isRequired() {
-      return (
-        this.rules !== null &&
-        (typeof this.rules === 'object'
-          ? this.rules.required
-          : this.rules.includes('required'))
-      )
     }
   }
 }

@@ -1,0 +1,41 @@
+.k-search-box {
+  position: relative;
+  max-width: 480px;
+  padding: 16px 8px 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 $color-shadow;
+  background-color: $color-element;
+  color: $color-text;
+  @include text-size(14px, 1.5, 300);
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  &__btn {
+    $size: 20px;
+    width: $size;
+    height: $size;
+    margin-right: 12px;
+    background-color: inherit;
+    color: inherit;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    color: $color-text;
+
+    &::placeholder,
+    &::-webkit-input-placeholder {
+      color: $color-text;
+      opacity: 0.8;
+    }
+  }
+}
