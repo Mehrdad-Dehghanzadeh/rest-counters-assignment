@@ -1,6 +1,6 @@
 # rest counters assignment
 ##Requirement
-`node v16+` and `vpn` fro connect to api
+`node v16+` and `vpn` for connect to api
 
 ## Build Setup
 
