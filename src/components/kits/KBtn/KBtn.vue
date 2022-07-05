@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" class="k-btn">
+  <component v-bind="$attrs" v-on="$listeners" :is="tag" class="k-btn">
     <i v-if="icon" :class="`icon k-btn__icon icon-${icon} `" />
     <span class="k-btn__text">
       <slot />

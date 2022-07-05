@@ -31,6 +31,14 @@ requireComponent.keys().forEach((fileName) => {
 })
 
 /*
- * Chart js
+ * filtres
  *************************/
+import { price } from '@helpers/filters'
 
+const filters = {
+  price
+}
+
+Object.entries(filters).forEach(([name, filter]) => {
+  Vue.filter(name, filter)
+})

@@ -9,5 +9,9 @@ export default ($axios) => ({
 
   region(region) {
     return $axios.get(`/region/${region}`)
+  },
+
+  code(params) {
+    return $axios.get(`/alpha`, { params })
   }
 })

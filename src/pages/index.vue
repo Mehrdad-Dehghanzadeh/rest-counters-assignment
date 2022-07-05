@@ -35,23 +35,23 @@ export default {
 
   async fetch({ store, query }) {
     const { search, region } = query
-    await store.dispatch('countries/clearCountries')
+    await store.dispatch('home/clearCountries')
 
     if (region || search) {
       if (region) {
-        await store.dispatch('countries/region', region)
+        await store.dispatch('home/region', region)
       }
       if (search) {
-        await store.dispatch('countries/search', search)
+        await store.dispatch('home/search', search)
       }
     } else {
-      await store.dispatch('countries/readAll')
+      await store.dispatch('home/readAll')
     }
   },
 
   computed: {
     ...mapGetters({
-      countries: 'countries/countries'
+      countries: 'home/countries'
     })
   }
 }

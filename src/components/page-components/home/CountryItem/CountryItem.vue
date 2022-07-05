@@ -1,6 +1,6 @@
 <template>
   <article class="country-item">
-    <nuxt-link class="display-block" :to="`/countery/${info.name}`">
+    <nuxt-link class="display-block" :to="`/country/${info.name}`">
       <img
         class="country-item__flag"
         :src="info.flags.svg"
@@ -11,19 +11,19 @@
       <div class="px-16 py-32">
         <h2 class="country-item__title">{{ info.name }}</h2>
 
-        <ul class="country-item-details">
-          <li class="country-item-details__item">
-            <span class="country-item-details__title">Population</span>
-            <span>{{ info.population }}</span>
+        <ul class="details-list">
+          <li class="details-list__item">
+            <span class="details-list__title">Population</span>
+            <span>{{ info.population | price }}</span>
           </li>
 
-          <li class="country-item-details__item">
-            <span class="country-item-details__title">region</span>
+          <li class="details-list__item">
+            <span class="details-list__title">region</span>
             <span>{{ info.region }}</span>
           </li>
 
-          <li class="country-item-details__item">
-            <span class="country-item-details__title">capital</span>
+          <li class="details-list__item">
+            <span class="details-list__title">capital</span>
             <span>{{ capital }}</span>
           </li>
         </ul>

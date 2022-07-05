@@ -23,21 +23,4 @@
     margin-bottom: 16px;
     text-transform: capitalize;
   }
-
-  &-details {
-    &__item {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-
-    &__title {
-      font-weight: 600;
-      margin-right: 5px;
-      text-transform: capitalize;
-
-      &:after {
-        content: ':';
-      }
-    }
-  }
 }
