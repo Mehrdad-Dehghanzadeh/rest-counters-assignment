@@ -1,7 +1,8 @@
 .default-layout-header {
-  box-shadow: 0 5px 5px 0 #f6f6f6;
+  box-shadow: 0 0 5px 0 hsla(0, 0%, 0%, 0.24);
   padding: 30px 0;
   background-color: $color-element;
+  margin-bottom: 5px;
 }
 
 .dark-mode-toggle {
@@ -14,6 +15,6 @@
   @include text-size(16px, 1.5, 600);
 
   &:hover {
-    box-shadow: 0 0 4px 0 #ddd;
+    box-shadow: 0 0 4px 0 $color-shadow;
   }
 }

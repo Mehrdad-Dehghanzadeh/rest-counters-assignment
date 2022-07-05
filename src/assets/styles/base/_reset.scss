@@ -2,14 +2,22 @@
 
 :root {
   --color-text: hsl(200, 15%, 8%);
+  --color-text-dark: hsl(200, 15%, 3%);
   --color-bg: hsl(0, 0%, 98%);
+  --color-bg-dark: hsl(0, 0%, 93%);
   --color-element: hsl(0, 0%, 100%);
+  --color-element-dark: hsl(0, 0%, 95%);
+  --color-shadow: hsl(0, 0%, 87%);
 }
 
 [data-theme='dark'] {
   --color-text: hsl(0, 0%, 100%);
+  --color-text-dark: hsl(0, 0%, 95%);
   --color-bg: hsl(207, 26%, 17%);
+  --color-bg--dark: hsl(207, 26%, 12%);
   --color-element: hsl(209, 23%, 22%);
+  --color-element-dark: hsl(209, 23%, 17%);
+  --color-shadow: hsl(212, 33%, 9%);
 }
 
 * {
@@ -25,7 +33,8 @@
 body {
   // background-color: $color-page-background;
   position: relative;
-  color: $color-text;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 hr {

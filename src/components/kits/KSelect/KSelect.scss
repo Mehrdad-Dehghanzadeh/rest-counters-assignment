@@ -1,0 +1,112 @@
+/**
+ * Select
+ * *********************************/
+.k-select {
+  background-color: $color-element;
+  border-radius: 7px;
+  box-shadow: 0 0 5px 0 $color-shadow;
+
+  &__input {
+    color: $color-text;
+
+    &--invisible {
+      opacity: 0;
+      height: 1px;
+      line-height: 0;
+    }
+  }
+
+  &__more-value {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  &__menu {
+    position: absolute;
+    max-height: 290px;
+    margin-bottom: 10px;
+    background-color: $color-element;
+    z-index: $select-index;
+    overflow-y: auto;
+    box-shadow: 0 0 5px 0 $color-shadow;
+    border-radius: 8px;
+  }
+
+  &__message {
+    color: #a9a9a9;
+    padding: 12px 16px;
+    font-size: 14px;
+    display: block;
+    font-weight: 400;
+  }
+
+  &__options {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  &__option {
+    font-size: 14px;
+    padding: 8px 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+
+    &--active {
+      font-weight: 600;
+    }
+  }
+
+  &__handle {
+    @include inline-block(initial);
+  }
+
+  &__loading {
+    width: calc(100% - 14px);
+    margin: -5px auto 0;
+    height: 3px;
+  }
+
+  .control {
+    &__input {
+      color: $color-text;
+    }
+
+    &__field {
+      position: relative;
+    }
+
+    &__append {
+      cursor: pointer;
+      position: absolute;
+      line-height: 0;
+      right: 9px;
+      top: 17px;
+    }
+
+    &__input {
+      border: none;
+      padding: 0;
+      background-color: inherit;
+    }
+
+    &__wrapper {
+      cursor: pointer;
+      display: block;
+      padding: 16px;
+      width: 100%;
+      @include text-size(14px, 1.5, 300);
+      max-height: 51px;
+    }
+  }
+
+  &--open {
+    .k-select__handle {
+      transform: rotate(180deg);
+    }
+  }
+}
