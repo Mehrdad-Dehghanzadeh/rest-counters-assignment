@@ -57,7 +57,7 @@
     cursor: pointer;
 
     &--active {
-      font-weight: 600;
+      font-weight: 800;
     }
   }
 
@@ -92,6 +92,15 @@
       border: none;
       padding: 0;
       background-color: inherit;
+<<<<<<< HEAD
+=======
+
+      &::placeholder,
+      &::-webkit-input-placeholder {
+        color: $color-text;
+        opacity: 0.8;
+      }
+>>>>>>> origin/dev
     }
 
     &__wrapper {

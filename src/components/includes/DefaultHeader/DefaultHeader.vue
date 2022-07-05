@@ -2,7 +2,9 @@
   <header class="default-layout-header">
     <div class="container">
       <div class="display-flex justify-content-between align-items-center">
-        <h1 class="default-layout-header__title">Where in the world ?</h1>
+        <strong class="default-layout-header__title">
+          Where in the world ?
+        </strong>
 
         <span class="dark-mode-toggle" @click="changeMode">
           <i

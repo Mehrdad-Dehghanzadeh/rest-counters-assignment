@@ -7,6 +7,11 @@
     .mt-#{$value} {
       margin-top: $value + px;
     }
+    .md-mt-#{$value}{
+      @media #{$media-down-md} {
+        margin-top: $value + px;
+      }
+    }
   } @else if $point == right {
     .mr-#{$value} {
       margin-right: $value + px;

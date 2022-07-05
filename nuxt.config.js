@@ -1,19 +1,29 @@
 import path from 'path'
 
 const srcDir = path.resolve(__dirname, 'src')
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   srcDir,
   telemetry: false,
 
+  publicruntimeconfig: {
+    apiVersion: process.env.API_VERSION,
+    baseURL: process.env.BASE_URL
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'alibaba',
+    titleTemplate: '%s | rest-counters',
+    title: 'rest-counters',
     htmlAttrs: {
       lang: 'en'
     },
+
+    server: {
+      port: process.env.NODE_ENV == 'production' ? 80 : process.env.PORT
+    },
+
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -29,6 +39,13 @@ export default {
   pageTransition: {
     name: 'page',
     mode: 'out-in'
+  },
+
+  loading: {
+    color: '#26bd7e',
+    height: '8px',
+    continuous: true,
+    duration: 3000
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/global', '~/plugins/axios', '~/plugins/api'],
@@ -52,7 +69,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
+    baseURL: `${process.env.BASE_URL}/${process.env.API_VERSION}`
   },
 
   styleResources: {
@@ -80,6 +97,7 @@ export default {
   },
 
   alias: {
+    '@api': path.resolve(__dirname, './src/api'),
     '@mixins': path.resolve(__dirname, './src/assets/mixins'),
     '@helpers': path.resolve(__dirname, './src/assets/helpers'),
     '@kits': path.resolve(__dirname, './src/components/kits'),
