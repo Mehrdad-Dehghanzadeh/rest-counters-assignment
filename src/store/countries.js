@@ -1,80 +1,69 @@
-import { deepClone } from '@helpers/object'
-
 export const state = () => ({
-  countries: []
+  info: {},
+  borders: []
 })
 
 export const getters = {
-  countries: ({ countries }) => countries
+  info: ({ info }) => info,
+  borders: ({ borders }) => borders
 }
 
 export const mutations = {
-  SET_COUNTRIES(state, payload) {
-    state.countries = deepClone(payload).map(
-      ({ name, region, flags, population, capital }) => {
-        return {
-          name: name.official,
-          region,
-          flags,
-          population,
-          capital
-        }
-      }
-    )
+  SET_INFO(state, paylod) {
+    state.info = {
+      name: paylod.name.official,
+      nativeName: paylod.name.nativeName,
+      population: paylod.population,
+      flags: paylod.flags,
+      capital: paylod.capital,
+      region: paylod.region,
+      subregion: paylod.subregion,
+      languages: paylod.languages,
+      currencies: paylod.currencies,
+      topLevelDomain: paylod.tld
+    }
   },
 
-  CLEAR_COUNTRIES(state) {
-    state.countries = []
+  SET_BORDERS(state, paylod) {
+    state.borders = paylod.map(({ name }) => name.common)
+  },
+
+  CLEAR_STATE(state) {
+    state.info = {}
+    state.borders = []
   }
 }
 
 export const actions = {
-  readAll({ commit }) {
+  getInfo({ commit }, payload) {
     return new Promise((resolve, reject) => {
       this.$api.countries
-        .readAll()
+        .name(payload, { fullText: true })
         .then((res) => {
-          commit('SET_COUNTRIES', res.data)
+          commit('SET_INFO', res.data[0])
           resolve(res)
         })
         .catch((err) => {
-          console.error(err)
           reject(err)
         })
     })
   },
 
-  search({ commit }, payload) {
+  getBorders({ commit }, payload) {
     return new Promise((resolve, reject) => {
       this.$api.countries
-        .name(payload, { fullname: true })
+        .code(payload)
         .then((res) => {
-          commit('SET_COUNTRIES', res.data)
+          commit('SET_BORDERS', res.data)
           resolve(res)
         })
         .catch((err) => {
-          console.error(err)
           reject(err)
         })
     })
   },
 
-  region({ commit }, payload) {
-    return new Promise((resolve, reject) => {
-      this.$api.countries
-        .region(payload)
-        .then((res) => {
-          commit('SET_COUNTRIES', res.data)
-          resolve(res)
-        })
-        .catch((err) => {
-          console.error(err)
-          reject(err)
-        })
-    })
-  },
-
-  clearCountries({ commit }) {
-    commit('CLEAR_COUNTRIES')
+  clear({ commit }) {
+    commit('CLEAR_STATE')
   }
 }

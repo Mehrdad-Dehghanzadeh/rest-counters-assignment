@@ -1,0 +1,28 @@
+.borders {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media #{$media-down-md} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__title {
+    margin-right: 20px;
+
+    @include text-size(16px, 1.5, 600);
+
+    &:after {
+      content: ':';
+    }
+
+    @media #{$media-down-md} {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__links {
+    margin: 10px 4px;
+  }
+}

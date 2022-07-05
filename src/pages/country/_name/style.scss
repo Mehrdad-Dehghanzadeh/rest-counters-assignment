@@ -1,0 +1,26 @@
+.country-page {
+  &__content {
+    margin-top: 70px;
+  }
+
+  &__flag {
+    width: 100%;
+    aspect-ratio: 4 /3;
+    object-fit: fill;
+  }
+
+  &__title {
+    @media #{$media-down-md} {
+      margin-top: 100px;
+    }
+  }
+
+  .details-list {
+    margin-bottom: 70px;
+
+    &__item {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+  }
+}
