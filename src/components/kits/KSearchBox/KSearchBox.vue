@@ -6,7 +6,7 @@
       </button>
 
       <input
-        v-model.trim="localValue"
+        v-model.trim="model"
         class="k-search-box__input"
         :name="safeName"
         :id="safeId"
@@ -25,35 +25,15 @@ import controlMixin from '@mixins/control'
 export default {
   name: 'KSearchBox',
   mixins: [controlMixin],
-
-  props: {
-    value: {
-      type: String,
-      default: ''
-    }
-  },
-
-  computed: {
-    localValue: {
-      get() {
-        return this.value
-      },
-
-      set(val) {
-        this.updateValue(val)
-      }
+  data() {
+    return {
+      model: ''
     }
   },
 
   methods: {
-    updateValue(val) {
-      this.$nextTick(() => {
-        this.$emit('input', val)
-      })
-    },
-
     search() {
-      this.$emit('search', localValue)
+      this.$emit('search', this.model)
     }
   }
 }
